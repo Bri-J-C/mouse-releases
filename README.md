@@ -45,10 +45,12 @@ phone connects by itself.
 - Forged, replayed or tampered packets are rejected.
 - Mouse talks only to devices on your local network. No accounts, cloud
   relay, ads or analytics; nothing is sent to the internet.
-- The computer program **updates itself** only with releases whose manifest is
-  signed with the project's Ed25519 key and whose files match its SHA-256
-  hashes. It never downgrades, and waits until your phone hasn't been used for
-  5 minutes before switching versions.
+- The computer program **never updates itself** and makes no internet
+  connections. When a newer version is out, the phone app marks that computer
+  "update available"; you update it by running the new Mouse-Setup.exe there.
+  (Computers on 1.5.7 or earlier make one last automatic update, to 1.5.8.)
+- Each release's `manifest.json` lists every file's SHA-256 and is signed
+  (`manifest.sig`, Ed25519) with the project's release key.
 
 Pair on a network you trust: someone actively impersonating your computer at
 the exact moment you pair could still attack the PIN.
